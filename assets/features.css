@@ -5,14 +5,11 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     position: relative;
     padding: 80px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Prevent white lines on mobile scroll */
-    overflow: hidden;
 }
 
 /* Background overlay similar to hero section */
@@ -269,7 +266,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    z-index: 9999;
+    z-index: 1000;
     box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
     /* Add touch-friendly properties */
     -webkit-tap-highlight-color: transparent;
@@ -278,9 +275,6 @@
     -webkit-user-select: none;
     /* Pulse animation for better visibility */
     animation: pulse 2s infinite;
-    /* Fix for mobile positioning */
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
 }
 
 @keyframes pulse {
@@ -352,29 +346,12 @@
 /* Mobile styles - Enhanced for better touch experience */
 @media (max-width: 768px) {
     .features-section {
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
         padding: 60px 15px;
         min-height: 100vh;
-        /* Prevent white lines and bouncing */
-        overflow: hidden;
-        position: relative;
-        /* Fix for mobile background issues */
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-    }
-    
-    /* Additional overlay to prevent white lines */
-    .features-section::before {
-        background-color: rgba(42, 82, 152, 0.1);
     }
     
     .features-container {
         padding: 0 15px;
-        position: relative;
-        z-index: 10;
     }
 
     .features-header {
@@ -406,7 +383,7 @@
         width: 56px;
         height: 56px;
         font-size: 1.4rem;
-        bottom: env(safe-area-inset-bottom, 20px);
+        bottom: 20px;
         right: 20px;
         /* Larger touch target */
         min-width: 44px;
@@ -416,18 +393,11 @@
         border: 2px solid rgba(59, 130, 246, 0.6);
         /* Better mobile shadow */
         box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-        /* Ensure proper positioning on mobile */
-        position: fixed;
-        z-index: 9999;
-        /* Hardware acceleration for smooth positioning */
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
-        will-change: transform;
     }
     
     .scroll-indicator:hover {
         background: rgba(59, 130, 246, 0.35);
-        transform: translate3d(0, 0, 0) scale(1.05); /* Smaller scale for mobile */
+        transform: scale(1.05); /* Smaller scale for mobile */
     }
     
     .features-floating-icon {
@@ -438,21 +408,10 @@
 @media (max-width: 480px) {
     .features-section {
         padding: 40px 10px;
-        background-attachment: scroll;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        /* Prevent mobile scroll issues */
-        -webkit-overflow-scrolling: touch;
-        /* Additional fix for white lines */
-        min-height: calc(100vh + 1px);
     }
     
     .features-container {
         padding: 0 10px;
-        position: relative;
-        z-index: 10;
     }
 
     .features-header {
@@ -486,7 +445,7 @@
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+        bottom: 16px;
         right: 16px;
         /* Ensure minimum touch target size */
         min-width: 44px;
@@ -494,17 +453,6 @@
         /* Slightly more prominent on small screens */
         background: rgba(59, 130, 246, 0.3);
         border: 2px solid rgba(59, 130, 246, 0.7);
-        /* Ensure fixed positioning works */
-        position: fixed;
-        z-index: 9999;
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
-        will-change: transform;
-        /* Prevent text selection */
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
     }
 }
 
@@ -514,15 +462,10 @@
         width: 48px;
         height: 48px;
         font-size: 1.1rem;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+        bottom: 12px;
         right: 12px;
         min-width: 44px;
         min-height: 44px;
-        position: fixed;
-        z-index: 9999;
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
-        will-change: transform;
     }
 }
 
@@ -531,12 +474,6 @@
     .features-section {
         min-height: 100vh;
         padding: 40px 15px;
-        background-attachment: scroll;
-        overflow: hidden;
-        /* Fix for landscape white lines */
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
     }
     
     .features-header {
@@ -555,13 +492,8 @@
         width: 48px;
         height: 48px;
         font-size: 1.2rem;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+        bottom: 16px;
         right: 16px;
-        position: fixed;
-        z-index: 9999;
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
-        will-change: transform;
     }
 }
 
@@ -583,23 +515,15 @@
         font-size: 1.5rem;
         /* Remove hover effects that don't work on touch */
         transition: transform 0.2s ease, background-color 0.2s ease;
-        /* Ensure proper positioning */
-        position: fixed;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
-        right: 20px;
-        z-index: 9999;
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
-        will-change: transform;
     }
     
     .scroll-indicator:hover {
-        transform: translate3d(0, 0, 0);
+        transform: none;
         background: rgba(59, 130, 246, 0.2);
     }
     
     .scroll-indicator:active {
-        transform: translate3d(0, 0, 0) scale(0.9);
+        transform: scale(0.9);
         background: rgba(59, 130, 246, 0.4);
     }
 }
