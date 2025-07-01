@@ -617,33 +617,4 @@
             }
         }
 
-        /* Landscape mobile */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .hero-section {
-                min-height: 100vh;
-                padding: 20px 15px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero-description {
-                margin-bottom: 1.5rem;
-            }
-            
-            .btn-container {
-                flex-direction: row;
-                margin-bottom: 1rem;
-            }
-
-            .demo-credentials {
-                margin: 1rem auto;
-            }
-            
-            .features-preview {
-                margin-top: 1rem;
-            }
-        }
-
-      
+       
