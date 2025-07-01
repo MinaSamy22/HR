@@ -166,20 +166,7 @@
             });
         }
 
-        // Scroll to features section
-        function scrollToFeatures() {
-            document.getElementById('features').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Scroll to top
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
+        
 
         // Initialize features
         function initializeFeatures() {
@@ -215,12 +202,7 @@
                 }
             });
 
-            // Show/hide scroll indicator
-            if (window.scrollY > 100) {
-                scrollIndicator.classList.remove('hidden');
-            } else {
-                scrollIndicator.classList.add('hidden');
-            }
+           
         }
 
         // Event listeners
