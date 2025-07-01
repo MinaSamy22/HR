@@ -248,7 +248,6 @@
     font-weight: 500;
 }
 
-/* Enhanced Responsive Scroll Indicator */
 .scroll-indicator {
     position: fixed;
     bottom: 2rem;
@@ -268,51 +267,17 @@
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-    /* Add touch-friendly properties */
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    /* Pulse animation for better visibility */
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-    }
-    50% {
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.6), 0 0 0 10px rgba(59, 130, 246, 0.1);
-    }
-    100% {
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-    }
 }
 
 .scroll-indicator:hover {
     background: rgba(59, 130, 246, 0.3);
     transform: scale(1.1);
     box-shadow: 0 20px 40px rgba(59, 130, 246, 0.5);
-    animation: none; /* Stop pulse on hover */
-}
-
-.scroll-indicator:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease;
 }
 
 .scroll-indicator.hidden {
     opacity: 0;
     pointer-events: none;
-    transform: scale(0.8);
-}
-
-.scroll-indicator i {
-    transition: transform 0.2s ease;
-}
-
-.scroll-indicator:hover i {
-    transform: translateY(-2px);
 }
 
 /* Animation keyframes */
@@ -343,9 +308,10 @@
     to { opacity: 1; }
 }
 
-/* Mobile styles - Enhanced for better touch experience */
+/* Mobile styles - matching hero section approach */
 @media (max-width: 768px) {
     .features-section {
+        background-attachment:fixed;
         padding: 60px 15px;
         min-height: 100vh;
     }
@@ -378,26 +344,12 @@
         padding: 1.5rem;
     }
 
-    /* Enhanced mobile scroll indicator */
     .scroll-indicator {
-        width: 56px;
-        height: 56px;
-        font-size: 1.4rem;
-        bottom: 20px;
-        right: 20px;
-        /* Larger touch target */
-        min-width: 44px;
-        min-height: 44px;
-        /* Enhanced visibility on mobile */
-        background: rgba(59, 130, 246, 0.25);
-        border: 2px solid rgba(59, 130, 246, 0.6);
-        /* Better mobile shadow */
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-    }
-    
-    .scroll-indicator:hover {
-        background: rgba(59, 130, 246, 0.35);
-        transform: scale(1.05); /* Smaller scale for mobile */
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
     }
     
     .features-floating-icon {
@@ -440,36 +392,16 @@
         padding: 1.2rem;
     }
 
-    /* Optimized for small screens */
     .scroll-indicator {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-        bottom: 16px;
-        right: 16px;
-        /* Ensure minimum touch target size */
-        min-width: 44px;
-        min-height: 44px;
-        /* Slightly more prominent on small screens */
-        background: rgba(59, 130, 246, 0.3);
-        border: 2px solid rgba(59, 130, 246, 0.7);
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+        bottom: 1rem;
+        right: 1rem;
     }
 }
 
-/* Extra small screens */
-@media (max-width: 360px) {
-    .scroll-indicator {
-        width: 48px;
-        height: 48px;
-        font-size: 1.1rem;
-        bottom: 12px;
-        right: 12px;
-        min-width: 44px;
-        min-height: 44px;
-    }
-}
-
-/* Landscape mobile - Enhanced */
+/* Landscape mobile - matching hero section */
 @media (max-width: 768px) and (orientation: landscape) {
     .features-section {
         min-height: 100vh;
@@ -487,62 +419,13 @@
     .features-grid {
         margin-top: 1.5rem;
     }
-    
-    .scroll-indicator {
-        width: 48px;
-        height: 48px;
-        font-size: 1.2rem;
-        bottom: 16px;
-        right: 16px;
-    }
 }
 
-/* High DPI displays */
+/* High DPI displays - matching hero section */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .features-section {
         background-image: 
-            linear-gradient(135deg, rgba(78, 90, 113, 0.8) 0%, rgba(42, 82, 152, 0.8) 50%, rgba(102, 126, 234, 0.8) 100%),
+            linear-gradient(135deg, rgba(30, 60, 114, 0.8) 0%, rgba(42, 82, 152, 0.8) 50%, rgba(102, 126, 234, 0.8) 100%),
             url('2.png');
-    }
-}
-
-/* Touch devices - Enhanced touch experience */
-@media (hover: none) and (pointer: coarse) {
-    .scroll-indicator {
-        /* Larger touch target for touch devices */
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-        /* Remove hover effects that don't work on touch */
-        transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-    
-    .scroll-indicator:hover {
-        transform: none;
-        background: rgba(59, 130, 246, 0.2);
-    }
-    
-    .scroll-indicator:active {
-        transform: scale(0.9);
-        background: rgba(59, 130, 246, 0.4);
-    }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-    .scroll-indicator {
-        animation: none;
-    }
-    
-    .scroll-indicator:hover {
-        transform: none;
-    }
-    
-    .features-floating-icon {
-        animation: none;
-    }
-    
-    .float, .floatIcon {
-        animation: none;
     }
 }
