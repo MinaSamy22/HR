@@ -283,7 +283,6 @@
 @media (max-width: 768px) {
     .features-section {
         padding: 60px 15px;
-        background-attachment: scroll;
     }
 
     .features-container {
@@ -370,31 +369,3 @@
     }
 }
 
-/* Landscape mobile - matching hero section */
-@media (max-width: 768px) and (orientation: landscape) {
-    .features-section {
-        min-height: 100vh;
-        padding: 40px 15px;
-    }
-    
-    .features-header {
-        margin-bottom: 2rem;
-    }
-    
-    .features-stats {
-        margin-bottom: 1.5rem;
-    }
-    
-    .features-grid {
-        margin-top: 1.5rem;
-    }
-}
-
-/* High DPI displays - matching hero section */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .features-section {
-        background-image: 
-            linear-gradient(135deg, rgba(30, 60, 114, 0.8) 0%, rgba(42, 82, 152, 0.8) 50%, rgba(102, 126, 234, 0.8) 100%),
-            url('2.png');
-    }
-}
