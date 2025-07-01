@@ -1,17 +1,15 @@
-/* Features Section Styles - Fixed Mobile Issues */
+/* Features Section Styles - Updated to match Hero Section */
 .features-section {
     min-height: 100vh;
     background: url('2.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     position: relative;
     padding: 80px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Background overlay similar to hero section */
@@ -154,7 +152,7 @@
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
     animation: slideInUp 1s ease-out 1.2s both;
@@ -250,13 +248,12 @@
     font-weight: 500;
 }
 
-/* Fixed scroll indicator with better mobile positioning */
 .scroll-indicator {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: rgba(59, 130, 246, 0.9);
-    border: 2px solid rgba(59, 130, 246, 0.8);
+    background: rgba(59, 130, 246, 0.2);
+    border: 2px solid rgba(59, 130, 246, 0.5);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -268,25 +265,19 @@
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    z-index: 9999; /* Higher z-index to ensure visibility */
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.scroll-indicator.show {
-    opacity: 1;
-    transform: scale(1);
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
 }
 
 .scroll-indicator:hover {
-    background: rgba(59, 130, 246, 1);
+    background: rgba(59, 130, 246, 0.3);
     transform: scale(1.1);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.5);
 }
 
-.scroll-indicator:active {
-    transform: scale(0.95);
+.scroll-indicator.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Animation keyframes */
@@ -317,16 +308,16 @@
     to { opacity: 1; }
 }
 
-/* Mobile styles - Fixed for better responsiveness */
+/* Mobile styles - matching hero section approach */
 @media (max-width: 768px) {
     .features-section {
+        background-attachment:fixed;
         padding: 60px 15px;
         min-height: 100vh;
     }
     
     .features-container {
-        padding: 0 10px;
-        max-width: 100%;
+        padding: 0 15px;
     }
 
     .features-header {
@@ -341,8 +332,6 @@
     .stat-item {
         min-width: 120px;
         padding: 1rem;
-        flex: 1;
-        max-width: 140px;
     }
 
     .features-grid {
@@ -353,32 +342,28 @@
 
     .feature-card {
         padding: 1.5rem;
-        margin: 0 5px; /* Prevent edge overflow */
     }
 
-    /* Fixed scroll indicator for mobile */
     .scroll-indicator {
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
-        bottom: 20px;
-        right: 20px;
-        background: rgba(59, 130, 246, 0.95);
+        bottom: 1.5rem;
+        right: 1.5rem;
     }
     
     .features-floating-icon {
-        display: none; /* Hide floating icons on mobile to improve performance */
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
     .features-section {
         padding: 40px 10px;
-        background-attachment: scroll; /* Ensure scroll on small screens */
     }
     
     .features-container {
-        padding: 0 5px;
+        padding: 0 10px;
     }
 
     .features-header {
@@ -394,44 +379,33 @@
 
     .stat-item {
         width: 100%;
-        max-width: 280px;
-        padding: 1.2rem;
-        flex: none;
+        max-width: 200px;
+        padding: 1rem;
     }
 
     .features-grid {
         gap: 1rem;
         margin-top: 1.5rem;
-        grid-template-columns: 1fr;
     }
 
     .feature-card {
         padding: 1.2rem;
-        margin: 0 2px;
     }
 
-    /* Better mobile scroll indicator */
     .scroll-indicator {
         width: 45px;
         height: 45px;
         font-size: 1rem;
-        bottom: 15px;
-        right: 15px;
-        background: rgba(59, 130, 246, 0.95);
-    }
-
-    /* Prevent white space issues */
-    body {
-        overflow-x: hidden;
+        bottom: 1rem;
+        right: 1rem;
     }
 }
 
-/* Landscape mobile */
+/* Landscape mobile - matching hero section */
 @media (max-width: 768px) and (orientation: landscape) {
     .features-section {
         min-height: 100vh;
-        padding: 30px 15px;
-        background-attachment: scroll;
+        padding: 40px 15px;
     }
     
     .features-header {
@@ -440,56 +414,18 @@
     
     .features-stats {
         margin-bottom: 1.5rem;
-        flex-direction: row;
-    }
-    
-    .stat-item {
-        min-width: 100px;
-        padding: 0.8rem;
     }
     
     .features-grid {
         margin-top: 1.5rem;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 
-/* Very small screens */
-@media (max-width: 360px) {
-    .features-section {
-        padding: 30px 8px;
-    }
-    
-    .features-container {
-        padding: 0 2px;
-    }
-    
-    .feature-card {
-        padding: 1rem;
-        margin: 0 1px;
-    }
-    
-    .scroll-indicator {
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
-        bottom: 10px;
-        right: 10px;
-    }
-}
-
-/* High DPI displays */
+/* High DPI displays - matching hero section */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .features-section {
         background-image: 
-            linear-gradient(135deg, rgba(78, 90, 113, 0.8) 0%, rgba(42, 82, 152, 0.8) 50%, rgba(102, 126, 234, 0.8) 100%),
+            linear-gradient(135deg, rgba(30, 60, 114, 0.8) 0%, rgba(42, 82, 152, 0.8) 50%, rgba(102, 126, 234, 0.8) 100%),
             url('2.png');
-    }
-}
-
-/* Fix for iOS Safari background attachment issues */
-@supports (-webkit-touch-callout: none) {
-    .features-section {
-        background-attachment: scroll;
     }
 }
