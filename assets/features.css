@@ -280,84 +280,94 @@
     to { opacity: 1; }
 }
 
-/* Mobile styles - matching hero section approach */
 @media (max-width: 768px) {
     .features-section {
-        background-attachment:fixed;
         padding: 60px 15px;
-        min-height: 100vh;
-    }
-    
-    .features-container {
-        padding: 0 15px;
+        background-attachment: scroll;
     }
 
-    .features-header {
-        margin-bottom: 3rem;
-    }
-    
-    .features-stats {
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .stat-item {
-        min-width: 120px;
-        padding: 1rem;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .feature-card {
-        padding: 1.5rem;
-    }
-
-    
-    
-    .features-floating-icon {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .features-section {
-        padding: 40px 10px;
-    }
-    
     .features-container {
         padding: 0 10px;
     }
 
-    .features-header {
-        margin-bottom: 2rem;
+    .features-header h2 {
+        font-size: 2rem;
+        line-height: 1.3;
     }
 
-    .features-stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
+    .features-subtitle {
+        font-size: 0.95rem;
+        max-width: 90%;
+        line-height: 1.6;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-top: 2rem;
+    }
+
+    .feature-card {
+        padding: 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .feature-title {
+        font-size: 1.1rem;
+    }
+
+    .feature-description {
+        font-size: 0.9rem;
+    }
+
+    .features-floating-icon {
+        display: none;
     }
 
     .stat-item {
+        min-width: unset;
         width: 100%;
-        max-width: 200px;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .features-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .feature-title {
+        font-size: 1rem;
+    }
+
+    .feature-description {
+        font-size: 0.85rem;
+    }
+
+    .feature-card {
         padding: 1rem;
     }
 
     .features-grid {
         gap: 1rem;
-        margin-top: 1.5rem;
     }
 
-    .feature-card {
-        padding: 1.2rem;
+    .stat-item {
+        padding: 0.9rem;
+        font-size: 0.9rem;
     }
 
+    .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
 }
 
 /* Landscape mobile - matching hero section */
