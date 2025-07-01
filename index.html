@@ -120,58 +120,7 @@ The HR System is perfect for managing your own organization and also generating 
         </div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator" id="scrollIndicator" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-<script>
-// Fixed Scroll Indicator JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollIndicator = document.getElementById('scrollIndicator');
-    
-    if (scrollIndicator) {
-        // Show/hide scroll indicator based on scroll position
-        function toggleScrollIndicator() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            
-            // Show indicator after scrolling down 100px
-            if (scrollTop > 100) {
-                scrollIndicator.classList.add('show');
-            } else {
-                scrollIndicator.classList.remove('show');
-            }
-        }
-        
-        // Throttle scroll events for better performance
-        let ticking = false;
-        function handleScroll() {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    toggleScrollIndicator();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        // Add scroll event listener
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        
-        // Initial check
-        toggleScrollIndicator();
-    }
-});
-
-// Smooth scroll to top function
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-</script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js.js"></script>
     <script src="assets/features.js"></script>
