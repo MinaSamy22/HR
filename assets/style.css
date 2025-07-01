@@ -646,11 +646,4 @@
             }
         }
 
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .hero-section {
-                background-image: 
-                    linear-gradient(135deg, rgba(30, 60, 114, 0.8) 0%, rgba(42, 82, 152, 0.8) 50%, rgba(102, 126, 234, 0.8) 100%),
-                    url('2.png');
-            }
-        }
+      
