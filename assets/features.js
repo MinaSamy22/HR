@@ -141,87 +141,68 @@
         ];
 
         // Create particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
+       // Copy to clipboard function
+function copyToClipboard(text, element) {
+    navigator.clipboard.writeText(text).then(() => {
+        const notification = element.querySelector('.copy-notification');
+        notification.classList.add('show');
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 2000);
+    });
+}
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 8 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
-                particlesContainer.appendChild(particle);
-            }
+// Initialize features
+function initializeFeatures() {
+    const grid = document.getElementById('featuresGrid');
+
+    features.forEach((feature, index) => {
+        const card = document.createElement('div');
+        card.className = 'feature-card';
+        card.style.transitionDelay = (index * 0.1) + 's';
+        card.innerHTML = `
+            <div class="feature-category">${feature.category}</div>
+            <div class="feature-icon">
+                <i class="${feature.icon}"></i>
+            </div>
+            <div class="feature-title">${feature.title}</div>
+            <div class="feature-description">${feature.description}</div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Animate features on scroll
+function animateOnScroll() {
+    const cards = document.querySelectorAll('.feature-card');
+
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (cardTop < windowHeight * 0.8) {
+            card.classList.add('animate');
         }
+    });
+}
 
-        // Copy to clipboard function
-        function copyToClipboard(text, element) {
-            navigator.clipboard.writeText(text).then(() => {
-                const notification = element.querySelector('.copy-notification');
-                notification.classList.add('show');
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 2000);
+// Event listeners
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', () => {
+    createParticles();
+    initializeFeatures();
+    animateOnScroll();
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
             });
         }
-
-        
-
-        // Initialize features
-        function initializeFeatures() {
-            const grid = document.getElementById('featuresGrid');
-            
-            features.forEach((feature, index) => {
-                const card = document.createElement('div');
-                card.className = 'feature-card';
-                card.style.transitionDelay = (index * 0.1) + 's';
-                card.innerHTML = `
-                    <div class="feature-category">${feature.category}</div>
-                    <div class="feature-icon">
-                        <i class="${feature.icon}"></i>
-                    </div>
-                    <div class="feature-title">${feature.title}</div>
-                    <div class="feature-description">${feature.description}</div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Animate features on scroll
-        function animateOnScroll() {
-            const cards = document.querySelectorAll('.feature-card');
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            
-            cards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (cardTop < windowHeight * 0.8) {
-                    card.classList.add('animate');
-                }
-            });
-
-           
-        }
-
-        // Event listeners
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', () => {
-            createParticles();
-            initializeFeatures();
-            animateOnScroll();
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+    });
+});
